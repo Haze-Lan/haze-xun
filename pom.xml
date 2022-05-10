@@ -48,7 +48,7 @@
         <spring-cloud.version>2021.0.2</spring-cloud.version>
         <spring-boot.version>2.6.7</spring-boot.version>
         <netty4.version>4.1.72.Final</netty4.version>
-        <grpc.version>1.43.2</grpc.version>
+        <grpc.version>1.46.0</grpc.version>
         <protoc.version>3.19.2</protoc.version>
         <guava-jdk8.version>30.1-jre</guava-jdk8.version>
         <mybatis.spring.version>2.0.6</mybatis.spring.version>
@@ -195,7 +195,27 @@
                         </excludes>
                     </configuration>
                 </plugin>
-
+                <plugin>
+                    <groupId>org.xolstice.maven.plugins</groupId>
+                    <artifactId>protobuf-maven-plugin</artifactId>
+                    <version>0.6.1</version>
+                    <configuration>
+                        <protoSourceRoot>${basedir}/proto</protoSourceRoot>
+                        <protocArtifact>com.google.protobuf:protoc:${protoc.version}:exe:${os.detected.classifier}
+                        </protocArtifact>
+                        <pluginId>grpc-java</pluginId>
+                        <pluginArtifact>io.grpc:protoc-gen-grpc-java:${grpc.version}:exe:${os.detected.classifier}
+                        </pluginArtifact>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>compile</goal>
+                                <goal>compile-custom</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
             </plugins>
         </pluginManagement>
 
