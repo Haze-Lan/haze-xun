@@ -6,6 +6,12 @@
     <groupId>com.haodoings.haze.xun</groupId>
     <artifactId>haze-xun</artifactId>
     <version>1.0</version>
+    <modules>
+        <module>collector</module>
+        <module>distribution</module>
+        <module>workbench</module>
+        <module>proxy</module>
+    </modules>
     <name>haze-xun</name>
     <packaging>pom</packaging>
     <url>https://github.com/Haze-Lan/haze-xun</url>
@@ -147,28 +153,7 @@
                         </execution>
                     </executions>
                 </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>${plugin.jar.version}</version>
-                    <configuration>
-                        <archive>
-                            <manifest>
-                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                            </manifest>
-                        </archive>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-assembly-plugin</artifactId>
-                    <version>${plugin.assembly.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-antrun-plugin</artifactId>
-                    <version>${plugin.antrun.version}</version>
-                </plugin>
+
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-clean-plugin</artifactId>
@@ -205,12 +190,7 @@
                         <sourceEncoding>${encoding}</sourceEncoding>
                         <targetJdk>${jdk.version}</targetJdk>
                         <excludes>
-                            <exclude>com/navercorp/pinpoint/thrift/dto/**/*.java</exclude>
-                            <exclude>com/navercorp/pinpoint/common/util/apache/**/*.java</exclude>
-                            <exclude>com/navercorp/pinpoint/bootstrap/util/spring/**/*.java</exclude>
-                            <exclude>com/navercorp/pinpoint/common/profiler/concurrent/jsr166/**/*.java</exclude>
-                            <exclude>com/navercorp/pinpoint/profiler/util/jdk/**/*.java</exclude>
-                            <exclude>com/navercorp/pinpoint/grpc/trace/**/*.java</exclude>
+
                         </excludes>
                     </configuration>
                 </plugin>
